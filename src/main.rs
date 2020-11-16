@@ -16,6 +16,7 @@ fn main() {
 fn solve_day(day: u8) {
     match day {
         1 => days::day01::Problem {}.solve(day),
+        2 => days::day02::Problem {}.solve(day),
         _ => println!("Day {} not yet implemented", day),
     }
 }
