@@ -57,7 +57,7 @@ fn get_basement_position(input: &Vec<char>) -> i32 {
 
 #[cfg(test)]
 mod tests {
-    use crate::days::day01::*;
+    use crate::y2015::day01::*;
 
     #[test]
     fn test_get_floor() {

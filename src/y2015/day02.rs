@@ -26,7 +26,7 @@ impl Present {
     fn ribbon_length(&self) -> u32 {
         let mut cloned_dimensions = self.dimensions.to_vec();
         cloned_dimensions.sort();
-        let length_wrap: u32 = cloned_dimensions.iter().take(2).map(|d| d*2).sum();
+        let length_wrap: u32 = cloned_dimensions.iter().take(2).map(|d| d * 2).sum();
         let cube = self.dimensions[0] * self.dimensions[1] * self.dimensions[2];
         length_wrap + cube
     }
@@ -66,7 +66,7 @@ impl Solver for Problem {
 
 #[cfg(test)]
 mod tests {
-    use crate::days::day02::*;
+    use crate::y2015::day02::*;
 
     #[test]
     fn test_square_feet_wrapping_paper() {

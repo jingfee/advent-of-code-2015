@@ -2,8 +2,8 @@ use std::fmt::Display;
 use std::fs::File;
 use std::io;
 
-fn get_input_file_path(day: u8) -> String {
-    format!("input/day{:02}.txt", day)
+fn get_input_file_path(year: &u16, day: &u8) -> String {
+    format!("input/{}/day{:02}.txt", year, day)
 }
 
 pub trait Solver {
@@ -20,8 +20,8 @@ pub trait Solver {
         Ok(self.parse_input(file))
     }
 
-    fn solve(&self, day: u8) {
-        let input_file_path = get_input_file_path(day);
+    fn solve(&self, year: &u16, day: &u8) {
+        let input_file_path = get_input_file_path(year, day);
         let input = self
             .load_input(input_file_path)
             .expect("Unable to open file");
