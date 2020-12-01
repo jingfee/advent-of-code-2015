@@ -3,6 +3,7 @@ use std::env;
 
 mod solver;
 mod y2015;
+mod y2020;
 
 fn main() {
     let (year, day) = parse_config();
@@ -38,6 +39,10 @@ fn solve_day(year: u16, day: u8) {
             9 => y2015::day09::Problem {}.solve(&year, &day),
             10 => y2015::day10::Problem {}.solve(&year, &day),
             11 => y2015::day11::Problem {}.solve(&year, &day),
+            _ => println!("Day {} not yet implemented", day),
+        },
+        2020 => match day {
+            1 => y2020::day01::Problem {}.solve(&year, &day),
             _ => println!("Day {} not yet implemented", day),
         },
         _ => println!("Year {} not yet implemented", year),
