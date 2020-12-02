@@ -59,7 +59,7 @@ fn is_password_valid(password: &str) -> bool {
     let mut forbidden_chars = false;
     let mut pairs = 0;
 
-    let mut bytes = password.to_string().into_bytes();
+    let bytes = password.to_string().into_bytes();
 
     for (i, c) in bytes.iter().enumerate() {
         if c == &105 || c == &108 || c == &111 {
