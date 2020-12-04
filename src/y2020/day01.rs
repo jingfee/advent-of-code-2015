@@ -19,7 +19,7 @@ impl Solver for Problem {
             .collect()
     }
 
-    fn solve_part_one(&self, input: &Vec<usize>) -> usize {
+    fn solve_part_one(&self, input: &mut Vec<usize>) -> usize {
         let mut mult = 1;
         expense_entries(&input, 2)
             .iter()
@@ -27,7 +27,7 @@ impl Solver for Problem {
         mult
     }
 
-    fn solve_part_two(&self, input: &Vec<usize>) -> usize {
+    fn solve_part_two(&self, input: &mut Vec<usize>) -> usize {
         let mut mult = 1;
         expense_entries(&input, 3)
             .iter()

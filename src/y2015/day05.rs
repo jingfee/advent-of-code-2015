@@ -1,8 +1,8 @@
 use crate::solver::Solver;
+use std::collections::HashSet;
 use std::fs::File;
 use std::io::prelude::*;
 use std::io::BufReader;
-use std::collections::HashSet;
 
 pub struct Problem;
 
@@ -16,12 +16,16 @@ impl Solver for Problem {
         buf_reader.lines().map(|l| l.unwrap()).collect()
     }
 
-    fn solve_part_one(&self, input: &Vec<String>) -> usize {
+    fn solve_part_one(&self, input: &mut Vec<String>) -> usize {
         input.iter().map(|w| is_word_nice(w)).filter(|w| *w).count()
     }
 
-    fn solve_part_two(&self, input: &Vec<String>) -> usize {
-        input.iter().map(|w| new_is_word_nice(w)).filter(|w| *w).count()
+    fn solve_part_two(&self, input: &mut Vec<String>) -> usize {
+        input
+            .iter()
+            .map(|w| new_is_word_nice(w))
+            .filter(|w| *w)
+            .count()
     }
 }
 

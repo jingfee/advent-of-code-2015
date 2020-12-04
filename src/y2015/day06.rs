@@ -58,7 +58,7 @@ impl Solver for Problem {
             .collect()
     }
 
-    fn solve_part_one(&self, input: &Vec<Instruction>) -> usize {
+    fn solve_part_one(&self, input: &mut Vec<Instruction>) -> usize {
         let mut light_grid = vec![vec![false; 1000]; 1000];
         input.iter().for_each(|instruction| {
             apply_instruction(&instruction, &mut light_grid);
@@ -69,7 +69,7 @@ impl Solver for Problem {
             .sum()
     }
 
-    fn solve_part_two(&self, input: &Vec<Instruction>) -> usize {
+    fn solve_part_two(&self, input: &mut Vec<Instruction>) -> usize {
         let mut light_grid = vec![vec![0; 1000]; 1000];
         input.iter().for_each(|instruction| {
             apply_instruction_brightness(&instruction, &mut light_grid);

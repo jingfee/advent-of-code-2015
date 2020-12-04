@@ -16,7 +16,7 @@ enum Operation {
 
 pub struct Instruction {
     operation: Operation,
-    wire_output: String
+    wire_output: String,
 }
 
 impl Instruction {
@@ -32,8 +32,7 @@ impl Instruction {
                     wire_output = line_split[2].to_string()
                 }
                 Err(_err) => {
-                    operation =
-                        Operation::ASSIGNREF(line_split[0].to_string());
+                    operation = Operation::ASSIGNREF(line_split[0].to_string());
                     wire_output = line_split[2].to_string();
                 }
             }
@@ -44,16 +43,10 @@ impl Instruction {
             wire_output = line_split[4].to_string();
             match line_split[1] {
                 "AND" => {
-                    operation = Operation::AND(
-                        line_split[0].to_string(),
-                        line_split[2].to_string(),
-                    )
+                    operation = Operation::AND(line_split[0].to_string(), line_split[2].to_string())
                 }
                 "OR" => {
-                    operation = Operation::OR(
-                        line_split[0].to_string(),
-                        line_split[2].to_string(),
-                    )
+                    operation = Operation::OR(line_split[0].to_string(), line_split[2].to_string())
                 }
                 "LSHIFT" => {
                     operation = Operation::LSHIFT(
@@ -73,7 +66,7 @@ impl Instruction {
 
         Instruction {
             operation: operation,
-            wire_output: wire_output
+            wire_output: wire_output,
         }
     }
 }
@@ -96,12 +89,12 @@ impl Solver for Problem {
             .collect()
     }
 
-    fn solve_part_one(&self, input: &Vec<Instruction>) -> u16 {
+    fn solve_part_one(&self, input: &mut Vec<Instruction>) -> u16 {
         let mut wire_map: HashMap<String, u16> = HashMap::new();
         find_wire_signal(&input, &mut wire_map, "a")
     }
 
-    fn solve_part_two(&self, input: &Vec<Instruction>) -> u16 {
+    fn solve_part_two(&self, input: &mut Vec<Instruction>) -> u16 {
         let signal_a = self.solve_part_one(input);
         let mut wire_map: HashMap<String, u16> = HashMap::new();
         wire_map.insert("b".to_string(), signal_a);
@@ -109,8 +102,15 @@ impl Solver for Problem {
     }
 }
 
-fn find_wire_signal(instructions: &Vec<Instruction>, wire_map: &mut HashMap<String, u16>, wire: &str) -> u16 {
-    let instruction_for_wire = instructions.iter().find(|i| { i.wire_output == *wire}).unwrap();
+fn find_wire_signal(
+    instructions: &Vec<Instruction>,
+    wire_map: &mut HashMap<String, u16>,
+    wire: &str,
+) -> u16 {
+    let instruction_for_wire = instructions
+        .iter()
+        .find(|i| i.wire_output == *wire)
+        .unwrap();
     let wire_output = &instruction_for_wire.wire_output;
     match &instruction_for_wire.operation {
         Operation::ASSIGN(value) => {
@@ -122,7 +122,7 @@ fn find_wire_signal(instructions: &Vec<Instruction>, wire_map: &mut HashMap<Stri
             let output;
             if wire_map.contains_key(input) {
                 output = wire_map[input];
-            } else {   
+            } else {
                 output = find_wire_signal(&instructions, wire_map, input);
             }
             wire_map.insert(wire_output.to_string(), output);
@@ -134,7 +134,11 @@ fn find_wire_signal(instructions: &Vec<Instruction>, wire_map: &mut HashMap<Stri
                 output1 = wire_map[input1];
                 output2 = wire_map[input2];
             } else {
-                output1 = if input1 == "1" {1} else{find_wire_signal(&instructions, wire_map, input1)};
+                output1 = if input1 == "1" {
+                    1
+                } else {
+                    find_wire_signal(&instructions, wire_map, input1)
+                };
                 output2 = find_wire_signal(&instructions, wire_map, input2);
             }
             wire_map.insert(wire_output.to_string(), output1 & output2);

@@ -18,11 +18,11 @@ impl Solver for Problem {
         contents
     }
 
-    fn solve_part_one(&self, input: &String) -> u64 {
+    fn solve_part_one(&self, input: &mut String) -> u64 {
         get_lowest_number(input, "00000")
     }
 
-    fn solve_part_two(&self, input: &String) -> u64 {
+    fn solve_part_two(&self, input: &mut String) -> u64 {
         get_lowest_number(input, "000000")
     }
 }

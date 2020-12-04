@@ -15,7 +15,7 @@ impl Solver for Problem {
         buf_reader.lines().nth(0).unwrap().unwrap()
     }
 
-    fn solve_part_one(&self, input: &String) -> usize {
+    fn solve_part_one(&self, input: &mut String) -> usize {
         let mut output = input.to_string();
         for _ in 0..40 {
             output = look_and_say(&output);
@@ -24,7 +24,7 @@ impl Solver for Problem {
         output.len()
     }
 
-    fn solve_part_two(&self, input: &String) -> usize {
+    fn solve_part_two(&self, input: &mut String) -> usize {
         let mut output = input.to_string();
         for _ in 0..50 {
             output = look_and_say(&output);

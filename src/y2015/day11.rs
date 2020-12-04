@@ -15,11 +15,11 @@ impl Solver for Problem {
         buf_reader.lines().nth(0).unwrap().unwrap()
     }
 
-    fn solve_part_one(&self, input: &String) -> String {
+    fn solve_part_one(&self, input: &mut String) -> String {
         get_next_password(input)
     }
 
-    fn solve_part_two(&self, input: &String) -> String {
+    fn solve_part_two(&self, input: &mut String) -> String {
         get_next_password(&get_next_password(input)[..])
     }
 }

@@ -37,11 +37,11 @@ impl Solver for Problem {
         (locations, routes)
     }
 
-    fn solve_part_one(&self, input: &(HashSet<String>, HashMap<String, usize>)) -> usize {
+    fn solve_part_one(&self, input: &mut (HashSet<String>, HashMap<String, usize>)) -> usize {
         fastest_routes(&input)
     }
 
-    fn solve_part_two(&self, input: &(HashSet<String>, HashMap<String, usize>)) -> usize {
+    fn solve_part_two(&self, input: &mut (HashSet<String>, HashMap<String, usize>)) -> usize {
         longest_routes(&input)
     }
 }
