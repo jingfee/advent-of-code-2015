@@ -18,7 +18,7 @@ impl Solver for Problem {
     type Output2 = isize;
 
     fn parse_input(&self, file: File) -> Vec<Guest> {
-        let mut guests: Vec<Guest> = vec![];
+        let mut guests: Vec<Guest> = Vec::new();
         let buf_reader = BufReader::new(file);
         buf_reader.lines().for_each(|l| {
             let line = l.unwrap();
