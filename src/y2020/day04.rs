@@ -86,11 +86,11 @@ impl Solver for Problem {
         get_passports(lines)
     }
 
-    fn solve_part_one(&self, input: &mut Vec<Passport>) -> usize {
+    fn solve_part_one(&self, input: &Vec<Passport>) -> usize {
         input.iter().map(|p| p.is_valid()).filter(|p| *p).count()
     }
 
-    fn solve_part_two(&self, input: &mut Vec<Passport>) -> usize {
+    fn solve_part_two(&self, input: &Vec<Passport>) -> usize {
         input
             .iter()
             .map(|p| p.is_valid_strict())

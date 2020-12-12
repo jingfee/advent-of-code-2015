@@ -18,13 +18,13 @@ impl Solver for Problem {
             .collect()
     }
 
-    fn solve_part_one(&self, input: &mut Vec<usize>) -> usize {
-        let differences = find_differences(input);
+    fn solve_part_one(&self, input: &Vec<usize>) -> usize {
+        let differences = find_differences(&mut input.to_vec());
         differences.0 * differences.1
     }
 
-    fn solve_part_two(&self, input: &mut Vec<usize>) -> usize {
-        find_valid_combinations(input)
+    fn solve_part_two(&self, input: &Vec<usize>) -> usize {
+        find_valid_combinations(&mut input.to_vec())
     }
 }
 

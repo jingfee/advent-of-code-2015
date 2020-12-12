@@ -15,11 +15,11 @@ impl Solver for Problem {
         buf_reader.lines().map(|l| l.unwrap()).collect()
     }
 
-    fn solve_part_one(&self, input: &mut Vec<String>) -> usize {
+    fn solve_part_one(&self, input: &Vec<String>) -> usize {
         traverse_map(input, 3, 1)
     }
 
-    fn solve_part_two(&self, input: &mut Vec<String>) -> usize {
+    fn solve_part_two(&self, input: &Vec<String>) -> usize {
         let slopes = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)];
         let mut mult = 1;
 

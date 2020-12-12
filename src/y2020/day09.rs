@@ -18,11 +18,11 @@ impl Solver for Problem {
             .collect()
     }
 
-    fn solve_part_one(&self, input: &mut Vec<usize>) -> usize {
+    fn solve_part_one(&self, input: &Vec<usize>) -> usize {
         find_first_fault_in_xmas(input, 25)
     }
 
-    fn solve_part_two(&self, input: &mut Vec<usize>) -> usize {
+    fn solve_part_two(&self, input: &Vec<usize>) -> usize {
         find_weakness(input, find_first_fault_in_xmas(input, 25))
     }
 }

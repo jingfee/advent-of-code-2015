@@ -10,6 +10,15 @@ pub struct Guest {
     neighbours: HashMap<String, isize>,
 }
 
+impl Clone for Guest {
+    fn clone(&self) -> Guest {
+        Guest {
+            name: self.name.to_string(),
+            neighbours: self.neighbours.clone(),
+        }
+    }
+}
+
 pub struct Problem;
 
 impl Solver for Problem {
@@ -51,12 +60,12 @@ impl Solver for Problem {
         guests
     }
 
-    fn solve_part_one(&self, input: &mut Vec<Guest>) -> isize {
+    fn solve_part_one(&self, input: &Vec<Guest>) -> isize {
         find_best_pairings(input)
     }
 
-    fn solve_part_two(&self, input: &mut Vec<Guest>) -> isize {
-        add_self_to_list(input);
+    fn solve_part_two(&self, input: &Vec<Guest>) -> isize {
+        add_self_to_list(&mut input.to_vec());
         find_best_pairings(input)
     }
 }

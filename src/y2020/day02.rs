@@ -60,11 +60,11 @@ impl Solver for Problem {
             .collect()
     }
 
-    fn solve_part_one(&self, input: &mut Vec<PasswordValidator>) -> usize {
+    fn solve_part_one(&self, input: &Vec<PasswordValidator>) -> usize {
         input.iter().filter(|i| i.validate()).count()
     }
 
-    fn solve_part_two(&self, input: &mut Vec<PasswordValidator>) -> usize {
+    fn solve_part_two(&self, input: &Vec<PasswordValidator>) -> usize {
         input.iter().filter(|i| i.validate_new_rules()).count()
     }
 }

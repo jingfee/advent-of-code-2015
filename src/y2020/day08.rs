@@ -25,11 +25,11 @@ impl Solver for Problem {
             .collect()
     }
 
-    fn solve_part_one(&self, input: &mut Vec<Instruction>) -> isize {
+    fn solve_part_one(&self, input: &Vec<Instruction>) -> isize {
         find_loop(input).0
     }
 
-    fn solve_part_two(&self, input: &mut Vec<Instruction>) -> isize {
+    fn solve_part_two(&self, input: &Vec<Instruction>) -> isize {
         fix_and_run_instructions(input)
     }
 }

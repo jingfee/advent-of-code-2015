@@ -15,11 +15,11 @@ impl Solver for Problem {
         buf_reader.lines().map(|l| l.unwrap()).collect()
     }
 
-    fn solve_part_one(&self, input: &mut Vec<String>) -> usize {
+    fn solve_part_one(&self, input: &Vec<String>) -> usize {
         input.iter().map(|s| seat_id(s)).max().unwrap()
     }
 
-    fn solve_part_two(&self, input: &mut Vec<String>) -> usize {
+    fn solve_part_two(&self, input: &Vec<String>) -> usize {
         let mut seat_ids: Vec<usize> = input.iter().map(|s| seat_id(s)).collect();
         seat_ids.sort();
 

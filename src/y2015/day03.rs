@@ -18,11 +18,11 @@ impl Solver for Problem {
         return contents.chars().collect();
     }
 
-    fn solve_part_one(&self, input: &mut Vec<char>) -> u32 {
+    fn solve_part_one(&self, input: &Vec<char>) -> u32 {
         get_houses(&input)
     }
 
-    fn solve_part_two(&self, input: &mut Vec<char>) -> u32 {
+    fn solve_part_two(&self, input: &Vec<char>) -> u32 {
         get_houses_robot(&input)
     }
 }

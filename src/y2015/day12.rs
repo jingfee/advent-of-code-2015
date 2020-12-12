@@ -15,11 +15,11 @@ impl Solver for Problem {
         buf_reader.lines().nth(0).unwrap().unwrap()
     }
 
-    fn solve_part_one(&self, input: &mut String) -> isize {
+    fn solve_part_one(&self, input: &String) -> isize {
         add_numbers(&input)
     }
 
-    fn solve_part_two(&self, input: &mut String) -> isize {
+    fn solve_part_two(&self, input: &String) -> isize {
         add_numbers_check_red(&input)
     }
 }

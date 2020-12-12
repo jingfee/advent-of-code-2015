@@ -17,11 +17,11 @@ impl Solver for Problem {
         get_groups(lines)
     }
 
-    fn solve_part_one(&self, input: &mut Vec<Vec<String>>) -> usize {
+    fn solve_part_one(&self, input: &Vec<Vec<String>>) -> usize {
         input.iter().map(|g| count_answers(g)).sum()
     }
 
-    fn solve_part_two(&self, input: &mut Vec<Vec<String>>) -> usize {
+    fn solve_part_two(&self, input: &Vec<Vec<String>>) -> usize {
         input.iter().map(|g| count_answers_everyone(g)).sum()
     }
 }

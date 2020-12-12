@@ -55,11 +55,11 @@ impl Solver for Problem {
             .collect()
     }
 
-    fn solve_part_one(&self, input: &mut Vec<Present>) -> u32 {
+    fn solve_part_one(&self, input: &Vec<Present>) -> u32 {
         input.iter().map(|p| p.square_feet_wrapping_paper()).sum()
     }
 
-    fn solve_part_two(&self, input: &mut Vec<Present>) -> u32 {
+    fn solve_part_two(&self, input: &Vec<Present>) -> u32 {
         input.iter().map(|p| p.ribbon_length()).sum()
     }
 }

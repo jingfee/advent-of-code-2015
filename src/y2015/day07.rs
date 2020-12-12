@@ -89,12 +89,12 @@ impl Solver for Problem {
             .collect()
     }
 
-    fn solve_part_one(&self, input: &mut Vec<Instruction>) -> u16 {
+    fn solve_part_one(&self, input: &Vec<Instruction>) -> u16 {
         let mut wire_map: HashMap<String, u16> = HashMap::new();
         find_wire_signal(&input, &mut wire_map, "a")
     }
 
-    fn solve_part_two(&self, input: &mut Vec<Instruction>) -> u16 {
+    fn solve_part_two(&self, input: &Vec<Instruction>) -> u16 {
         let signal_a = self.solve_part_one(input);
         let mut wire_map: HashMap<String, u16> = HashMap::new();
         wire_map.insert("b".to_string(), signal_a);

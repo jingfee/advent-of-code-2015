@@ -17,11 +17,11 @@ impl Solver for Problem {
         return contents.chars().collect();
     }
 
-    fn solve_part_one(&self, input: &mut Vec<char>) -> i32 {
+    fn solve_part_one(&self, input: &Vec<char>) -> i32 {
         get_floor(&input)
     }
 
-    fn solve_part_two(&self, input: &mut Vec<char>) -> i32 {
+    fn solve_part_two(&self, input: &Vec<char>) -> i32 {
         get_basement_position(input)
     }
 }

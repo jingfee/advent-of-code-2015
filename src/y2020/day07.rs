@@ -22,13 +22,13 @@ impl Solver for Problem {
         get_bag_rules(lines)
     }
 
-    fn solve_part_one(&self, input: &mut Vec<BagRule>) -> usize {
+    fn solve_part_one(&self, input: &Vec<BagRule>) -> usize {
         let mut holders = HashSet::new();
         bag_holders("shiny gold".to_string(), &mut holders, &input);
         holders.len()
     }
 
-    fn solve_part_two(&self, input: &mut Vec<BagRule>) -> usize {
+    fn solve_part_two(&self, input: &Vec<BagRule>) -> usize {
         bag_content("shiny gold".to_string(), &input)
     }
 }
