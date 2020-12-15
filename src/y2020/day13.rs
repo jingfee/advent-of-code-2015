@@ -48,7 +48,7 @@ impl Solver for Problem {
     }
 
     fn solve_part_two(&self, input: &Timetable) -> usize {
-        win_contest(input)
+        win_contest(input, 100000000000000)
     }
 }
 
@@ -72,8 +72,8 @@ fn find_departure(timetable: &Timetable) -> usize {
     }
 }
 
-fn win_contest(timetable: &Timetable) -> usize {
-    let mut t = 0;
+fn win_contest(timetable: &Timetable, start_timestamp: usize) -> usize {
+    let mut t = start_timestamp;
     let mut add = 1;
     let mut iterated = Vec::new();
     for departure in &timetable.departures {
@@ -176,11 +176,11 @@ mod tests {
             departures_with_index: ex6_index,
         };
 
-        assert_eq!(win_contest(&timetable_ex1), 1068781);
-        assert_eq!(win_contest(&timetable_ex2), 3417);
-        assert_eq!(win_contest(&timetable_ex3), 754018);
-        assert_eq!(win_contest(&timetable_ex4), 779210);
-        assert_eq!(win_contest(&timetable_ex5), 1261476);
-        assert_eq!(win_contest(&timetable_ex6), 1202161486);
+        assert_eq!(win_contest(&timetable_ex1, 0), 1068781);
+        assert_eq!(win_contest(&timetable_ex2, 0), 3417);
+        assert_eq!(win_contest(&timetable_ex3, 0), 754018);
+        assert_eq!(win_contest(&timetable_ex4, 0), 779210);
+        assert_eq!(win_contest(&timetable_ex5, 0), 1261476);
+        assert_eq!(win_contest(&timetable_ex6, 0), 1202161486);
     }
 }
