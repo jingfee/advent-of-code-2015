@@ -45,11 +45,11 @@ fn generate_regex(
 
     rule.split(" | ")
         .map(|p| {
-            let mut pipe_regex = String::from("(");
+            let mut pipe_regex = String::from("(?:");
             let rec_rules = p
                 .split(" ")
                 .map(|r| {
-                    let mut follow_regex = String::from("(");
+                    let mut follow_regex = String::from("(?:");
                     let rule_number = r.parse::<usize>().unwrap();
                     follow_regex.push_str(&generate_regex(rule_number, rules, with_replace));
                     follow_regex.push_str(")");
