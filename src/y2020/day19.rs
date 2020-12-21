@@ -192,11 +192,11 @@ mod tests {
         ]);
 
         let reg1 = generate_regex(0, &ex1.0, false);
-        //let reg2_no_replacement = generate_regex(0, &ex2.0, false);
+        let reg2_no_replacement = generate_regex(0, &ex2.0, false);
         let reg2_with_replacement = generate_regex(0, &ex2.0, true);
 
         assert_eq!(validate_messages(reg1, &ex1.1), 2);
-        //assert_eq!(validate_messages(reg2_no_replacement, &ex2.1), 3);
+        assert_eq!(validate_messages(reg2_no_replacement, &ex2.1), 3);
         assert_eq!(validate_messages(reg2_with_replacement, &ex2.1), 12);
     }
 }
