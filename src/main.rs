@@ -1,5 +1,6 @@
 use crate::solver::Solver;
 use std::env;
+extern crate pcre2;
 
 mod solver;
 mod y2015;
@@ -62,6 +63,7 @@ fn solve_day(year: u16, day: u8) {
             16 => y2020::day16::Problem {}.solve(&year, &day),
             17 => y2020::day17::Problem {}.solve(&year, &day),
             18 => y2020::day18::Problem {}.solve(&year, &day),
+            19 => y2020::day19::Problem {}.solve(&year, &day),
             _ => println!("Day {} not yet implemented", day),
         },
         _ => println!("Year {} not yet implemented", year),
