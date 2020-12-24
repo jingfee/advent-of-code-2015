@@ -64,6 +64,7 @@ fn solve_day(year: u16, day: u8) {
             17 => y2020::day17::Problem {}.solve(&year, &day),
             18 => y2020::day18::Problem {}.solve(&year, &day),
             19 => y2020::day19::Problem {}.solve(&year, &day),
+            20 => y2020::day20::Problem {}.solve(&year, &day),
             _ => println!("Day {} not yet implemented", day),
         },
         _ => println!("Year {} not yet implemented", year),
