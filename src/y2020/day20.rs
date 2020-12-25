@@ -1,5 +1,4 @@
 use crate::solver::Solver;
-use itertools::Itertools;
 use std::fs::File;
 use std::io::prelude::*;
 use std::io::BufReader;
