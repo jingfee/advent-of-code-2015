@@ -1,5 +1,4 @@
 use crate::solver::Solver;
-use itertools::Itertools;
 use std::fs::File;
 use std::io::prelude::*;
 use std::io::BufReader;
@@ -25,7 +24,7 @@ impl Solver for Problem {
         transform_subject_number(input.1, loop_size_card)
     }
 
-    fn solve_part_two(&self, input: &(usize, usize)) -> usize {
+    fn solve_part_two(&self, _input: &(usize, usize)) -> usize {
         0
     }
 }
